@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">24.materialdesign</string>
     <string name="action_settings">Settings</string>
+    <string name="EdtUsrName">Enter User Name</string>
+    <string name="EdtPswd">Enter password</string>
+    <string name="action_profile">Profile</string>
+    <string name="Login">Login</string>
 </resources>

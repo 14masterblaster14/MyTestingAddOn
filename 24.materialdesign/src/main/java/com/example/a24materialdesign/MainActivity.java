@@ -5,9 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,17 +17,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
+
+        //Enabling Context Menu
+        registerForContextMenu(findViewById(R.id.UserName));
     }
 
     @Override
@@ -44,9 +45,43 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
+        } else if (id == R.id.action_profile) {
+            Toast.makeText(this, "Profile", Toast.LENGTH_LONG).show();
         }
 
-        return super.onOptionsItemSelected(item);
+        // return super.onOptionsItemSelected(item);
+
+        return true;
+    }
+
+    // This method will be used if you want to change the options dynamically
+    // i.e. options will be changed runtime if you select any options on the screen
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        if (v.getId() == R.id.UserName) {
+            menu.add(100, 1, 0, "Cut");
+            menu.add(100, 2, 1, "Copy");
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getItemId() == 1) {
+            Toast.makeText(this, "Cut", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Copy", Toast.LENGTH_LONG).show();
+        }
+
+
+        // return super.onContextItemSelected(item);
+        return true;
     }
 }
