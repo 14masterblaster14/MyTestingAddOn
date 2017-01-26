@@ -1,5 +1,6 @@
 package com.example.a24materialdesign;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
         } else if (id == R.id.action_profile) {
             Toast.makeText(this, "Profile", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, ProfileActivity.class));
+        } else if (id == R.id.action_help) {
+            Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
         }
 
         // return super.onOptionsItemSelected(item);
