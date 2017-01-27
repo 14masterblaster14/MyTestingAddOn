@@ -1,1 +1,1 @@
-include ':app', ':24.materialdesign', ':25.navigationdrawer', ':26.asynchtask'
+include ':app', ':24.materialdesign', ':25.navigationdrawer', ':26.asynctask'
