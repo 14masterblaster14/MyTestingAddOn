@@ -1,8 +1,8 @@
-package com.example.a26asynchtask;
+package com.example.a261uihandlers;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +36,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void click(View view) {
-
-        //threadRun();
-        new MyTask().execute(0, 100 /* Params*/);
+        howHandlerWorks();
     }
 
+    private void howHandlerWorks() {
 
-    private void threadRun() {
         new Thread(() -> {
 
-            TextView textview = (TextView) findViewById(R.id.TxtView);
-            for (int i = 0; i < 100; i++) {
+            for (i = 0; i < 100; i++) {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                textview.setText(String.valueOf(i));
+
+                new Handler(Looper.getMainLooper()).post(() ->
+                        ((TextView) findViewById(R.id.TxtView)).setText(String.valueOf(i)));
             }
         }).start();
     }
@@ -76,52 +76,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    // private class MyTask extends AsyncTask<Params, Progress, Result>
-    // AsyncTask is a generics i.e.AsyncTask<Void/Integer, Integer/float, Boolean/Integer>
-    private class MyTask extends AsyncTask<Integer, Integer, Boolean> {
-
-        private ProgressDialog progressDialog;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            //This is Main/UI Thread
-            progressDialog = ProgressDialog.show(MainActivity.this, "Counter", "I am counting...");
-        }
-
-        @Override
-        protected Boolean/*Result*/ doInBackground(Integer... params /*Params from exeute method*/) {
-            //This is Worker Thread
-            for (int i = params[0]; i < params[1]; i++) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                publishProgress(i /*Progress*/);
-            }
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean aBoolean /*Result*/) {
-            super.onPostExecute(aBoolean);
-            //This is Main/UI Thread
-            progressDialog.dismiss();
-            if (aBoolean) {
-                Toast.makeText(MainActivity.this, "Process complete", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... values /*Progress*/) {
-            super.onProgressUpdate(values);
-            //This is Main/UI Thread
-
-            ((TextView) findViewById(R.id.TxtView)).setText(String.valueOf(values[0]));
-        }
     }
 }

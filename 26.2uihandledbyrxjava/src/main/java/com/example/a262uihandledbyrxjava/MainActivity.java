@@ -1,17 +1,19 @@
-package com.example.a26asynchtask;
+package com.example.a262uihandledbyrxjava;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,24 +38,64 @@ public class MainActivity extends AppCompatActivity {
 
     private void click(View view) {
 
-        //threadRun();
-        new MyTask().execute(0, 100 /* Params*/);
+        howRxJavaWorks();
     }
 
+    private void howRxJavaWorks() {
+    /*
+        counterObservable()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<String>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.i("@RXJAVA","Completed");
+                    }
 
-    private void threadRun() {
-        new Thread(() -> {
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i("@RXJAVA","Error - " + e.toString());
+                    }
 
-            TextView textview = (TextView) findViewById(R.id.TxtView);
-            for (int i = 0; i < 100; i++) {
+                    @Override
+                    public void onNext(String s) {
+                        ((TextView)findViewById(R.id.TxtView)).setText(s);
+                    }
+                });
+
+                */
+        counterObservable()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnCompleted(() -> Log.i("@RXJAVA", "Completed"))
+                .doOnNext(s -> ((TextView) findViewById(R.id.TxtView)).setText(s))
+                .doOnError(e -> Log.i("@RXJAVA", " " + e.toString()))
+                .subscribe();
+    }
+
+    Observable<String> counterObservable() {
+
+       /* return Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+
+            }
+        });  */
+
+        return Observable.create(subscriber -> {
+
+            for (int i = 1; i < 100; i++) {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                textview.setText(String.valueOf(i));
+
+                subscriber.onNext("" + i);
             }
-        }).start();
+
+            subscriber.onCompleted();
+        });
     }
 
     @Override
@@ -76,52 +118,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    // private class MyTask extends AsyncTask<Params, Progress, Result>
-    // AsyncTask is a generics i.e.AsyncTask<Void/Integer, Integer/float, Boolean/Integer>
-    private class MyTask extends AsyncTask<Integer, Integer, Boolean> {
-
-        private ProgressDialog progressDialog;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            //This is Main/UI Thread
-            progressDialog = ProgressDialog.show(MainActivity.this, "Counter", "I am counting...");
-        }
-
-        @Override
-        protected Boolean/*Result*/ doInBackground(Integer... params /*Params from exeute method*/) {
-            //This is Worker Thread
-            for (int i = params[0]; i < params[1]; i++) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                publishProgress(i /*Progress*/);
-            }
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean aBoolean /*Result*/) {
-            super.onPostExecute(aBoolean);
-            //This is Main/UI Thread
-            progressDialog.dismiss();
-            if (aBoolean) {
-                Toast.makeText(MainActivity.this, "Process complete", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... values /*Progress*/) {
-            super.onProgressUpdate(values);
-            //This is Main/UI Thread
-
-            ((TextView) findViewById(R.id.TxtView)).setText(String.valueOf(values[0]));
-        }
     }
 }
