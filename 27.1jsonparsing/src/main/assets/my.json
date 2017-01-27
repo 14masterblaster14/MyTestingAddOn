@@ -1,0 +1,20 @@
+{
+  "Name": "Android",
+  "OS": "JB",
+  "Ver": "4.1",
+  "IsUpdateAva": true,
+  "AllVersions": {
+    "Base": 1.0,
+    "cupCake": 2.0
+  },
+  "devices": [
+    {
+      "mobile": "HTC",
+      "cost": 5000
+    },
+    {
+      "mobile": "Samsung",
+      "cost": 7000
+    }
+  ]
+}

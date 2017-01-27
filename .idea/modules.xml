@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/26.1uihandledbyhandlers/26.1uihandledbyhandlers.iml" filepath="$PROJECT_DIR$/26.1uihandledbyhandlers/26.1uihandledbyhandlers.iml" />
       <module fileurl="file://$PROJECT_DIR$/26.2uihandledbyrxjava/26.2uihandledbyrxjava.iml" filepath="$PROJECT_DIR$/26.2uihandledbyrxjava/26.2uihandledbyrxjava.iml" />
       <module fileurl="file://$PROJECT_DIR$/26.asynctask/26.asynctask.iml" filepath="$PROJECT_DIR$/26.asynctask/26.asynctask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/27.1jsonparsing/27.1jsonparsing.iml" filepath="$PROJECT_DIR$/27.1jsonparsing/27.1jsonparsing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/27.jsonparsing/27.jsonparsing.iml" filepath="$PROJECT_DIR$/27.jsonparsing/27.jsonparsing.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sample.iml" filepath="$PROJECT_DIR$/Sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

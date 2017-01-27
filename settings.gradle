@@ -1,1 +1,1 @@
-include ':app', ':24.materialdesign', ':25.navigationdrawer', ':26.asynctask', ':26.1uihandledbyhandlers', ':26.2uihandledbyrxjava'
+include ':app', ':24.materialdesign', ':25.navigationdrawer', ':26.asynctask', ':26.1uihandledbyhandlers', ':26.2uihandledbyrxjava', ':27.1jsonparsing', ':27.jsonparsing'
