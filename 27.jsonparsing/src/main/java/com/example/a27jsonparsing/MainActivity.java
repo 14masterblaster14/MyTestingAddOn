@@ -5,9 +5,16 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +33,69 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        parseUsingJsonObjectApi(readJsonFromAssets());
     }
+
+    private String readJsonFromAssets() {
+
+        StringBuilder builder = new StringBuilder();
+
+        try {
+            InputStream inputStream = getAssets().open("my.json");
+            while (true) {
+                int ch = inputStream.read();
+                if (ch == -1) break;
+                else builder.append((char) ch);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return builder.toString();
+    }
+
+    private void parseUsingJsonObjectApi(String json) {
+        StringBuilder builder = new StringBuilder();
+
+        try {
+            JSONObject rootObject = new JSONObject(json);
+            String name = rootObject.getString("Name");
+            String os = rootObject.getString("OS");
+            double version = rootObject.getDouble("Ver");
+            boolean isUpdateAva = rootObject.getBoolean("IsUpdateAva");
+            builder.append("\n Name ").append(name);
+            builder.append("\n OS ").append(os);
+            builder.append("\n Version ").append(version);
+            builder.append("\n IsUpdateAva ").append(isUpdateAva);
+
+            JSONObject innerObject = rootObject.getJSONObject("AllVersions");
+            double base = innerObject.getDouble("Base");
+            double cupCake = innerObject.getDouble("cupCake");
+            builder.append("\n Base ").append(base);
+            builder.append("\n CupCake ").append(cupCake);
+
+            JSONArray devices = rootObject.getJSONArray("devices");
+
+            for (int i = 0; i < devices.length(); i++) {
+
+                JSONObject arrayObject = devices.getJSONObject(i);
+                String mobile = arrayObject.getString("mobile");
+                int cost = arrayObject.getInt("cost");
+                builder.append("\n Mobile ").append(mobile);
+                builder.append("\n Cost ").append(cost);
+            }
+
+            Log.i("@JSONPARSING", builder.toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
