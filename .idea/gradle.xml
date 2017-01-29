@@ -16,6 +16,8 @@
             <option value="$PROJECT_DIR$/26.asynctask" />
             <option value="$PROJECT_DIR$/27.1jsonparsing" />
             <option value="$PROJECT_DIR$/27.jsonparsing" />
+            <option value="$PROJECT_DIR$/28.jsonparsingusinggson" />
+            <option value="$PROJECT_DIR$/29webservices" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
