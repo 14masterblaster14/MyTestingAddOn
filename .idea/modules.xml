@@ -7,10 +7,19 @@
       <module fileurl="file://$PROJECT_DIR$/26.1uihandledbyhandlers/26.1uihandledbyhandlers.iml" filepath="$PROJECT_DIR$/26.1uihandledbyhandlers/26.1uihandledbyhandlers.iml" />
       <module fileurl="file://$PROJECT_DIR$/26.2uihandledbyrxjava/26.2uihandledbyrxjava.iml" filepath="$PROJECT_DIR$/26.2uihandledbyrxjava/26.2uihandledbyrxjava.iml" />
       <module fileurl="file://$PROJECT_DIR$/26.asynctask/26.asynctask.iml" filepath="$PROJECT_DIR$/26.asynctask/26.asynctask.iml" />
-      <module fileurl="file://$PROJECT_DIR$/27.1jsonparsing/27.1jsonparsing.iml" filepath="$PROJECT_DIR$/27.1jsonparsing/27.1jsonparsing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/27.1jsonparsinglibrary/27.1jsonparsinglibrary.iml" filepath="$PROJECT_DIR$/27.1jsonparsinglibrary/27.1jsonparsinglibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/27.jsonparsing/27.jsonparsing.iml" filepath="$PROJECT_DIR$/27.jsonparsing/27.jsonparsing.iml" />
       <module fileurl="file://$PROJECT_DIR$/28.jsonparsingusinggson/28.jsonparsingusinggson.iml" filepath="$PROJECT_DIR$/28.jsonparsingusinggson/28.jsonparsingusinggson.iml" />
       <module fileurl="file://$PROJECT_DIR$/29webservices/29webservices.iml" filepath="$PROJECT_DIR$/29webservices/29webservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/30.locationservices/30.locationservices.iml" filepath="$PROJECT_DIR$/30.locationservices/30.locationservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/31.wifi/31.wifi.iml" filepath="$PROJECT_DIR$/31.wifi/31.wifi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/32.bluetooth/32.bluetooth.iml" filepath="$PROJECT_DIR$/32.bluetooth/32.bluetooth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/33.telephoneapi/33.telephoneapi.iml" filepath="$PROJECT_DIR$/33.telephoneapi/33.telephoneapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/34.camera/34.camera.iml" filepath="$PROJECT_DIR$/34.camera/34.camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/35.sensors/35.sensors.iml" filepath="$PROJECT_DIR$/35.sensors/35.sensors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/36.selectors/36.selectors.iml" filepath="$PROJECT_DIR$/36.selectors/36.selectors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/37.recyclerview/37.recyclerview.iml" filepath="$PROJECT_DIR$/37.recyclerview/37.recyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/38.layerlist/38.layerlist.iml" filepath="$PROJECT_DIR$/38.layerlist/38.layerlist.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sample.iml" filepath="$PROJECT_DIR$/Sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

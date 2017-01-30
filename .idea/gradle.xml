@@ -14,10 +14,19 @@
             <option value="$PROJECT_DIR$/26.1uihandledbyhandlers" />
             <option value="$PROJECT_DIR$/26.2uihandledbyrxjava" />
             <option value="$PROJECT_DIR$/26.asynctask" />
-            <option value="$PROJECT_DIR$/27.1jsonparsing" />
+            <option value="$PROJECT_DIR$/27.1jsonparsinglibrary" />
             <option value="$PROJECT_DIR$/27.jsonparsing" />
             <option value="$PROJECT_DIR$/28.jsonparsingusinggson" />
             <option value="$PROJECT_DIR$/29webservices" />
+            <option value="$PROJECT_DIR$/30.locationservices" />
+            <option value="$PROJECT_DIR$/31.wifi" />
+            <option value="$PROJECT_DIR$/32.bluetooth" />
+            <option value="$PROJECT_DIR$/33.telephoneapi" />
+            <option value="$PROJECT_DIR$/34.camera" />
+            <option value="$PROJECT_DIR$/35.sensors" />
+            <option value="$PROJECT_DIR$/36.selectors" />
+            <option value="$PROJECT_DIR$/37.recyclerview" />
+            <option value="$PROJECT_DIR$/38.layerlist" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
