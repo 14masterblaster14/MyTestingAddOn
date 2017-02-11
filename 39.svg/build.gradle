@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.example.a37recyclerview"
+        applicationId "com.example.a39svg"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
