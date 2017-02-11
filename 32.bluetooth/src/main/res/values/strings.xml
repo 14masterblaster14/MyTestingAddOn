@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">32.bluetooth</string>
     <string name="action_settings">Settings</string>
+    <string name="BluetoothEnable">Enable Bluetooth</string>
+    <string name="BluetoothConnectedDevices">Connected Devices</string>
+    <string name="StartDiscovery">Start Discovery</string>
+    <string name="MakeDiscoverable">Make Discoverable</string>
+    <string name="BluetoothServer">Bluetooth Server</string>
+    <string name="BluetoothClient">Bluetooth Client</string>
 </resources>
