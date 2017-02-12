@@ -22,7 +22,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private WifiManager wifiManager;
-
     private BroadcastReceiver wifiBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             for (ScanResult scanResult : scanResults) {
 
                 Log.i("@MasterBlaster", "Scanned SSID - " + scanResult.SSID);
+                Log.i("@MasterBlaster", "Scanned BSSID - " + scanResult.BSSID);
             }
         }
     };
@@ -53,15 +53,16 @@ public class MainActivity extends AppCompatActivity {
 
         wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
+        if (!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
+
         findViewById(R.id.BtnConnected).setOnClickListener(this::connectedWifi);
-        findViewById(R.id.BtnScan).setOnClickListener(this::scan);
-        findViewById(R.id.BtnConnect).setOnClickListener(this::connect);
+        findViewById(R.id.BtnScan).setOnClickListener(this::scanForWifi);
+        findViewById(R.id.BtnConnect).setOnClickListener(this::connectWifi);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         registerReceiver(wifiBroadcastReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
     }
 
@@ -71,29 +72,30 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
+
     private void connectedWifi(View view) {
 
         List<WifiConfiguration> wifiConfigurations = wifiManager.getConfiguredNetworks();
         for (WifiConfiguration wifiConfiguration : wifiConfigurations) {
 
-            Log.i("@MasterBlaster", "BSSID - " + wifiConfiguration.BSSID);
-            Log.i("@MasterBlaster", "SSID - " + wifiConfiguration.SSID);
+            Log.i("@MasterBlaster", "Connected BSSID - " + wifiConfiguration.BSSID);
+            Log.i("@MasterBlaster", "Connected SSID - " + wifiConfiguration.SSID);
         }
     }
 
-    private void scan(View view) {
+    private void scanForWifi(View view) {
 
         wifiManager.startScan();
 
     }
 
-    private void connect(View view) {
+    private void connectWifi(View view) {
 
         WifiConfiguration wifiConfiguration = new WifiConfiguration();
         wifiConfiguration.SSID = String.format("\"%s\"", "YOUR CODEKUL");
         // wifiConfiguration.SSID = String.format("\"%s\"","iBall-Baton");
         wifiConfiguration.preSharedKey = String.format("\"%s\"", "code.com;");
-        wifiConfiguration.preSharedKey = String.format("\"%s\"", "pswd@1234");
+        wifiConfiguration.preSharedKey = String.format("\"%s\"", "pswd@123");
 
         WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         int netId = wifiManager.addNetwork(wifiConfiguration);

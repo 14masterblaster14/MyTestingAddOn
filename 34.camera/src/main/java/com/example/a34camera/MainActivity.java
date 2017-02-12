@@ -1,6 +1,10 @@
 package com.example.a34camera;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +12,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.VideoView;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import id.zelory.compressor.Compressor;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int REQ_CAPTURE_PIC = 1234;
+    private static final int REQ_CAPTURE_VID = 5678;
+    private File file_Pic, file_CompressedPic, file_Vid, file_CompressedVid;
+    private Uri fileUri_Pic, fileUri_Vid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +45,80 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        findViewById(R.id.BtnCapture).setOnClickListener(this::captureImage);
+        findViewById(R.id.BtnVideo).setOnClickListener(this::captureVideo);
+    }
+
+
+    private void captureImage(View view) {
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        file_Pic = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MyTest.jpg");
+        fileUri_Pic = Uri.fromFile(file_Pic);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri_Pic);
+        startActivityForResult(intent, REQ_CAPTURE_PIC);
+
+        compressImage();
+    }
+
+    private void compressImage() {
+
+        file_CompressedPic = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                , "MyTest-comp.jpg");
+
+        Compressor.getDefault(this)
+                .compressToFileAsObservable(file_Pic)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<File>() {
+                    @Override
+                    public void call(File fileComp) {
+                        //compressedImage = file;
+
+                        try {
+                            FileInputStream fis = new FileInputStream(fileComp);
+                            byte[] bytes = new byte[(int) fileComp.length()];
+                            fis.read(bytes);
+                            fis.close();
+                        }
+                     /*   catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }  */ catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        //showError(throwable.getMessage());
+                    }
+                });
+    }
+
+
+    private void captureVideo(View view) {
+
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        file_Vid = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MyTest.mp3");
+        fileUri_Vid = Uri.fromFile(file_Vid);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri_Vid);
+        startActivityForResult(intent, REQ_CAPTURE_VID);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQ_CAPTURE_PIC) {
+
+            ((ImageView) findViewById(R.id.ImageView)).setImageURI(fileUri_Pic);
+        } else if (requestCode == REQ_CAPTURE_VID) {
+
+            ((VideoView) findViewById(R.id.VideoView)).setVideoURI(fileUri_Vid);
+        }
     }
 
     @Override

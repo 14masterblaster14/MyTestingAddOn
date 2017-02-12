@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void enableBluetooth(View view) {
         startActivityForResult(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE), REQ_ENABLE_BT);
+
     }
 
     @Override
@@ -128,11 +129,11 @@ public class MainActivity extends AppCompatActivity {
     private void serverRunnable() {
 
         try {
-            BluetoothServerSocket bluetoothServerSocket = bluetoothAdapter.listenUsingRfcommWithServiceRecord("myService", UUID.fromString("a427aa15-740e-4319-b4b4-8aa8f580d16e"));
+            BluetoothServerSocket bluetoothServerSocket = bluetoothAdapter.listenUsingRfcommWithServiceRecord("myService", UUID.fromString("b59c64b7-33ea-4895-a025-71fc85d44f2b"));
             //bluetoothServerSocket.connect();  //Ask for Pairing
-            BluetoothSocket bluetoothSocket = bluetoothServerSocket.accept();
+            BluetoothSocket bluetoothSocket = bluetoothServerSocket.accept(); //Accept connection from client
             DataOutputStream dos = new DataOutputStream(bluetoothSocket.getOutputStream());
-            dos.writeUTF("This is HELLO from Server side");
+            dos.writeUTF("This is HELLO from Server side / Connected to Bluetooth Srever ");
             //dos.close();
 
         } catch (IOException e) {
@@ -148,11 +149,11 @@ public class MainActivity extends AppCompatActivity {
     private void clientRunnable() {
         BluetoothDevice bluetoothDevice = bluetoothAdapter.getRemoteDevice("F4:F5:A5:E4:98:C0");
         try {
-            BluetoothSocket bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("a427aa15-740e-4319-b4b4-8aa8f580d16e"));
-            bluetoothSocket.connect();
+            BluetoothSocket bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("b59c64b7-33ea-4895-a025-71fc85d44f2b"));
+            bluetoothSocket.connect(); // ask for pairing
             DataInputStream dis = new DataInputStream(bluetoothSocket.getInputStream());
-            String fromServer = dis.readUTF();
-            Log.i("@MasterBlaster", "Server Said : " + fromServer);
+            String dataFromServer = dis.readUTF();
+            Log.i("@MasterBlaster", "Server Said : " + dataFromServer);
             //dis.close();
         } catch (IOException e) {
             e.printStackTrace();
