@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQ_SENT = 1234;
     private static final int REQ_DELIVERED = 4561;
     private TelephonyManager telephonyManager;
+
     private BroadcastReceiver broadcastReceiverSms = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
