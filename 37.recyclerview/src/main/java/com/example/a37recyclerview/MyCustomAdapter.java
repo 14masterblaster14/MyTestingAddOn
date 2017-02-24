@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyViewHolder> {
 
+    int previousPosition = 0;
     private List<MyData> objectList;
     private LayoutInflater layoutInflater;
 
@@ -45,6 +46,16 @@ public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyView
         MyData currentObject = objectList.get(position);
         holder.setData(currentObject, position);
         holder.setListeners();
+
+        /* Animation Logic*/
+        if (position > previousPosition) {   // We are scrolling down
+            MyAnimation.animate(holder, true);
+
+        } else {  // We are scrolling up
+            MyAnimation.animate(holder, false);
+        }
+
+        previousPosition = position;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
