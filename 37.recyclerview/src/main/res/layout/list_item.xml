@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,14 +16,14 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/ImgView"
+            android:id="@+id/ImgView_Thumb"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="7dp"
             android:src="@drawable/s18" />
 
         <TextView
-            android:id="@+id/TxtView"
+            android:id="@+id/TxtView_Title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="7dp"
@@ -45,7 +44,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="7dp"
-                android:src="@drawable/remove-icon"
+                android:src="@drawable/remove_icon"
                 android:tint="@android:color/darker_gray" />
 
             <ImageView
@@ -53,7 +52,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="7dp"
-                android:src="@drawable/copy-icon"
+                android:src="@drawable/copy_icon"
                 android:tint="@android:color/darker_gray" />
 
         </LinearLayout>
