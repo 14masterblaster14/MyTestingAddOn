@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
 
         if (v.getId() == R.id.UserName) {
+
+        /*    MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.floating_context_menu,menu);  */
             menu.add(100, 1, 0, "Cut");
             menu.add(100, 2, 1, "Copy");
         }
