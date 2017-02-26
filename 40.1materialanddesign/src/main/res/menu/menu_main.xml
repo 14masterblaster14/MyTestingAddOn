@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_login"
+        android:orderInCategory="100"
+        android:title="Login"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Logout"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/refresh_icon"
+        android:orderInCategory="100"
+        android:title="Refresh"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_mail"
+        android:icon="@drawable/mail_icon"
+        android:orderInCategory="100"
+        android:title="Mail"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_camera"
+        android:icon="@drawable/camera_icon"
+        android:orderInCategory="100"
+        android:title="Camera"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_alarm"
+        android:icon="@drawable/alarm_icon"
+        android:orderInCategory="100"
+        android:title="Alarm"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_facebook"
+        android:icon="@drawable/facebook_icon"
+        android:orderInCategory="100"
+        android:title="Facebook"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/delete_icon"
+        android:orderInCategory="100"
+        android:title="Delete"
+        app:showAsAction="ifRoom" />
+
+
+</menu>
