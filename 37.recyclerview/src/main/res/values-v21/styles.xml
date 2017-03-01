@@ -1,9 +1,25 @@
 <resources>
 
+    <!-- Base application theme. -->
+    <style name="AppMaterialTheme" parent="SuperMaterialTheme">
+        <!-- Customize your theme for only Lollipop and above version features here. -->
+
+    </style>
+
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+
+    <style name="SuperMaterialTheme" parent="Theme.AppCompat">
+        <!-- Parent Theme for all Pre-Lollipop and Lollipop above version i.e. fro all devices -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>

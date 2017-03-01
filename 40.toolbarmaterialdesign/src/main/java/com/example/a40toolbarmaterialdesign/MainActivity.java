@@ -18,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //toolbar.setTitle("Home Page");
+
+        //toolbar.setSubtitle("Welcome User...!");
+        getSupportActionBar().setTitle("Welcome User...!");
+        toolbar.setNavigationIcon(R.drawable.navigation_icon);
+        toolbar.setNavigationContentDescription("Navigation Icon");
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

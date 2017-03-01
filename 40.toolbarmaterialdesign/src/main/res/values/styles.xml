@@ -2,24 +2,65 @@
 
     <!-- Base application theme. -->
     <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
     <!-- Customize your theme here. -->
 
-    <!--     <item name="colorPrimary">@color/colorPrimary</item>
-             <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-             <item name="colorAccent">@color/colorAccent</item>
-
-           </style>
-           <style name="AppTheme.NoActionBar">
-               <item name="windowActionBar">false</item>
-               <item name="windowNoTitle">true</item>
-           </style>
-           <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-           <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" /> -->
-    <!--  ***************************************************************************   -->
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <!-- Color Primary is used for default Action bar background -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Color Primary Dark is used for Status bar -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- Color Accent is used as a default value for Color Control Activated , which is used to tint widgets -->
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--  Use to make contextual action mode overlap the toolbar i.e. contextual menu inflated from xml will be
+              available inplace of toolbar for more actions
+
+            <item name="android:windowActionModeOverlay">true</item>
+            <item name="actionModeStyle">@style/MyCustomActionMode</item>  -->
+
+
+        <!-- Changes default Back icon of the Action Mode
+
+            <item name="actionModeCloseDrawable">@drawable/refresh_icon</item>  -->
+
+
     </style>
+
+    <!--        CUSTOMIZATION OF ACTION BAR    Starts
+        <style name="MyCustomActionMode" parent="Widget.AppCompat.ActionMode">  -->
+    <!-- Background of a Contextual Action Bar -->
+    <!--       <item name="background">@color/contextual_bg</item>
+           <item name="titleTextStyle">@style/MyActionBarTextStyle</item>
+       </style>
+
+       <style name="MyActionBarTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+           <item name="textColor">@color/actionbar_text</item>
+       </style>
+
+      CUSTOMIZATION OF ACTION BAR    Ends -->
+
+    <!--          <style name="AppTheme.NoActionBar">
+                 <item name="windowActionBar">false</item>
+                 <item name="windowNoTitle">true</ item>
+                 </style> -->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="MyCustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Text Color of Toolbar Title -->
+        <item name="android:textColorPrimary">#000</item>
+        <!-- Color of options menu (3 dot icon) and colour of Navigation Drawer Icon -->
+        <item name="android:textColorSecondary">#000</item>
+    </style>
+
+    <style name="MyCustomPopupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Text Color of Options menu -->
+        <item name="android:textColorPrimary">#000</item>
+        <!-- Background of Options menu -->
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+
 </resources>

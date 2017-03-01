@@ -11,5 +11,12 @@
               Either specify here or specify in the Activity -->
 
         <!-- <item name="android:windowContentTransitions">true</item>  -->
+
+        <!--Enable window content Transition - Either specify here or specify in the Activity-->
+        <!--<item name="android:windowContentTransitions">true</item>-->
+
+        <!--Transition Overlap - Either specify here or Specify in the Activity-->
+        <!--<item name="android:windowAllowEnterTransitionOverlap">false</item>-->
+        <!--<item name="android:windowAllowReturnTransitionOverlap">false</item>-->
     </style>
 </resources>

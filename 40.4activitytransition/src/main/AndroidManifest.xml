@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SharedElementActivity" />
+        <activity android:name=".TransitionActivity" />
+        <activity android:name=".Transition1Activity" />
     </application>
 
 </manifest>

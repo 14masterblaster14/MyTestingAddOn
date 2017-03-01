@@ -7,4 +7,57 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_login"
+        android:orderInCategory="100"
+        android:title="Login"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Logout"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/refresh_icon"
+        android:orderInCategory="100"
+        android:title="Refresh"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/delete_icon"
+        android:orderInCategory="100"
+        android:title="Delete"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_delete1"
+        android:icon="@drawable/delete_icon"
+        android:orderInCategory="100"
+        android:title="Delete1"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_delete2"
+        android:icon="@drawable/delete_icon"
+        android:orderInCategory="100"
+        android:title="Delete2"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_delete3"
+        android:icon="@drawable/delete_icon"
+        android:orderInCategory="100"
+        android:title="Delete3"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_delete4"
+        android:icon="@drawable/delete_icon"
+        android:orderInCategory="100"
+        android:title="Delete4"
+        app:showAsAction="ifRoom" />
+
 </menu>

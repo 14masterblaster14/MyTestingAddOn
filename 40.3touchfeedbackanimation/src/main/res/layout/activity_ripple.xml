@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ripple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/BtnRippleWithBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="dummyClick"
+            android:padding="20dp"
+            android:text="Ripple With Border"
+            android:textColor="@android:color/black"
+            android:textSize="21sp" />
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ripple1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/BtnRippleWithoutBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:onClick="dummyClick"
+            android:padding="20dp"
+            android:text="Ripple Without Border"
+            android:textColor="@android:color/black"
+            android:textSize="21sp"
+            tools:targetApi="lollipop" />
+        <!-- tools:targetApi="lollipop" -->
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ripple2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/BtnCustomRippleWithBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_ripple_border"
+            android:onClick="dummyClick"
+            android:padding="20dp"
+            android:text="Custom Ripple With Border"
+            android:textColor="@android:color/black"
+            android:textSize="21sp" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ripple3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/BtnCustomRippleWithoutBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_ripple_borderless"
+            android:onClick="dummyClick"
+            android:padding="20dp"
+            android:text="Custom Ripple Without Border"
+            android:textColor="@android:color/black"
+            android:textSize="21sp" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</LinearLayout>

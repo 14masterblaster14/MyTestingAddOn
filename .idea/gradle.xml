@@ -28,6 +28,11 @@
             <option value="$PROJECT_DIR$/37.recyclerview" />
             <option value="$PROJECT_DIR$/38.layerlist" />
             <option value="$PROJECT_DIR$/39.svg" />
+            <option value="$PROJECT_DIR$/40.1materialanddesigntoolbar" />
+            <option value="$PROJECT_DIR$/40.2materialanddesignsnackbarfab" />
+            <option value="$PROJECT_DIR$/40.3touchfeedbackanimation" />
+            <option value="$PROJECT_DIR$/40.4activitytransition" />
+            <option value="$PROJECT_DIR$/40.5floatinglabeledittext" />
             <option value="$PROJECT_DIR$/40.toolbarmaterialdesign" />
             <option value="$PROJECT_DIR$/app" />
           </set>

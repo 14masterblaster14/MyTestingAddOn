@@ -21,6 +21,11 @@
       <module fileurl="file://$PROJECT_DIR$/37.recyclerview/37.recyclerview.iml" filepath="$PROJECT_DIR$/37.recyclerview/37.recyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/38.layerlist/38.layerlist.iml" filepath="$PROJECT_DIR$/38.layerlist/38.layerlist.iml" />
       <module fileurl="file://$PROJECT_DIR$/39.svg/39.svg.iml" filepath="$PROJECT_DIR$/39.svg/39.svg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/40.1materialanddesigntoolbar/40.1materialanddesigntoolbar.iml" filepath="$PROJECT_DIR$/40.1materialanddesigntoolbar/40.1materialanddesigntoolbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/40.2materialanddesignsnackbarfab/40.2materialanddesignsnackbarfab.iml" filepath="$PROJECT_DIR$/40.2materialanddesignsnackbarfab/40.2materialanddesignsnackbarfab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/40.3touchfeedbackanimation/40.3touchfeedbackanimation.iml" filepath="$PROJECT_DIR$/40.3touchfeedbackanimation/40.3touchfeedbackanimation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/40.4activitytransition/40.4activitytransition.iml" filepath="$PROJECT_DIR$/40.4activitytransition/40.4activitytransition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/40.5floatinglabeledittext/40.5floatinglabeledittext.iml" filepath="$PROJECT_DIR$/40.5floatinglabeledittext/40.5floatinglabeledittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/40.toolbarmaterialdesign/40.toolbarmaterialdesign.iml" filepath="$PROJECT_DIR$/40.toolbarmaterialdesign/40.toolbarmaterialdesign.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyTestingAddOn.iml" filepath="$PROJECT_DIR$/MyTestingAddOn.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
