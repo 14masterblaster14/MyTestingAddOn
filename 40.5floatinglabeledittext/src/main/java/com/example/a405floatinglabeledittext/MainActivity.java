@@ -41,21 +41,21 @@ public class MainActivity extends AppCompatActivity {
         boolean isValid = true;
 
         if (editTextName.getText().toString().isEmpty()) {
-            inputLayoutName.setError("Full Name is Mandatory");
+            inputLayoutName.setError(getString(R.string.Username_validation_msg));
             isValid = false;
         } else {
             inputLayoutName.setErrorEnabled(false);
         }
 
         if (editTextEmail.getText().toString().isEmpty()) {
-            inputLayoutName.setError("Email is Mandatory");
+            inputLayoutName.setError(getString(R.string.Email_validation_msg));
             isValid = false;
         } else {
             inputLayoutEmail.setErrorEnabled(false);
         }
 
         if (editTextPswd.getText().toString().trim().length() < 8) {
-            inputLayoutPswd.setError("Minimum 8 characters required");
+            inputLayoutPswd.setError(getString(R.string.Pswd_validation_msg));
             isValid = false;
         } else {
             inputLayoutPswd.setErrorEnabled(false);

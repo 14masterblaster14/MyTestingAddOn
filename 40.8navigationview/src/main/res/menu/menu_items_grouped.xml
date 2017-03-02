@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+
+        android:id="@+id/group_SocialMedia"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/facebook"
+            android:checkable="true"
+            android:icon="@drawable/ic_facebook"
+            android:title="Facebook" />
+
+        <item
+            android:id="@+id/googlePlus"
+            android:checkable="true"
+            android:icon="@drawable/ic_googleplus"
+            android:title="Google Plus" />
+
+        <item
+            android:id="@+id/instagram"
+            android:checkable="true"
+            android:icon="@drawable/ic_instagram"
+            android:title="Instagram" />
+
+        <item
+            android:id="@+id/linkedin"
+            android:checkable="true"
+            android:icon="@drawable/ic_linkedin"
+            android:title="Linkedin" />
+
+        <item
+            android:id="@+id/pinterest"
+            android:checkable="true"
+            android:icon="@drawable/ic_pinterest"
+            android:title="Pinterest" />
+
+        <item
+            android:id="@+id/twitter"
+            android:checkable="true"
+            android:icon="@drawable/ic_twitter"
+            android:title="Twitter" />
+
+    </group>
+
+    <group
+        android:id="@+id/group_Others"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/alarm"
+            android:checkable="true"
+            android:icon="@drawable/alarm_icon"
+            android:title="Alarm" />
+
+        <item
+            android:id="@+id/camera"
+            android:checkable="true"
+            android:icon="@drawable/camera_icon"
+            android:title="Camera" />
+
+        <item
+            android:id="@+id/copy"
+            android:checkable="true"
+            android:icon="@drawable/copy_icon"
+            android:title="Copy" />
+
+        <item
+            android:id="@+id/delete"
+            android:checkable="true"
+            android:icon="@drawable/delete_icon"
+            android:title="Delete" />
+
+        <item
+            android:id="@+id/download"
+            android:checkable="true"
+            android:icon="@drawable/download_icon"
+            android:title="Download" />
+
+        <item
+            android:id="@+id/refresh"
+            android:checkable="true"
+            android:icon="@drawable/refresh_icon"
+            android:title="Refresh" />
+
+    </group>
+
+    <group
+        android:id="@+id/group_Another"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/mail"
+            android:checkable="true"
+            android:icon="@drawable/mail_icon"
+            android:title="Mail" />
+
+        <item
+            android:id="@+id/navigation"
+            android:checkable="true"
+            android:icon="@drawable/navigation_back_icon"
+            android:title="Navigation" />
+
+        <item
+            android:id="@+id/remove"
+            android:checkable="true"
+            android:icon="@drawable/remove_icon"
+            android:title="Remove" />
+
+        <item
+            android:id="@+id/tick"
+            android:checkable="true"
+            android:icon="@drawable/tick_icon"
+            android:title="Tick" />
+    </group>
+
+
+</menu>
