@@ -1,6 +1,5 @@
 package com.example.a401materialanddesign;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +25,10 @@ public class StandaloneToolbar extends AppCompatActivity {
 
 
         //Compatibility by JAVA
-
+    /*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbar.setElevation(10f);
-        }
+        } */
 
         toolbar.inflateMenu(R.menu.menu_main);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {

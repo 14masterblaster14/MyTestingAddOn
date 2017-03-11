@@ -27,7 +27,7 @@ public class ActionbarToolbar extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Action Bar Toolbar !");
         toolbar.setSubtitle("by MasterBlaster !");
-        toolbar.setNavigationIcon(R.drawable.navigation_back_icon);
+        //toolbar.setNavigationIcon(R.drawable.navigation_back_icon);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

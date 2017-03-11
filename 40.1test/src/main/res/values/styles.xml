@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"> -->
+    <!-- Customize your theme here. -->
+    <!--      <item name="colorPrimary">@color/colorPrimary</item>
+         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+         <item name="colorAccent">@color/colorAccent</item>
+
+         <item name="windowActionModeOverlay">true</item>
+     </style>  -->
+
+    <!-- @@@@@@@@@@@@@@ Working fine  @@@@@@@@@@@@@@@@@@ -->
+
+    <!-- Base application theme. -->
+    <style name="AppMaterialTheme" parent="SuperMaterialTheme">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
+    <style name="SuperMaterialTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Parent Theme for all Pre-Lollipop and Lollipop above version i.e. for   all devices -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorControlHighlight">#edea0d</item>
+        <item name="colorButtonNormal">#f955f3</item>
+        <item name="colorControlActivated">#0cf427</item>
+
+        <!-- It will allow to inflate the contextual menu in the toolbar,
+             rather than inflating it seperatle in addition to the toolbar -->
+        <item name="windowActionModeOverlay">true</item>
+
+        <item name="actionModeStyle">@style/MyActionMode</item>
+    </style>
+
+    <style name="MyActionMode" parent="@style/Widget.AppCompat.ActionMode">
+        <!-- Background of the Contextual Action Bar -->
+        <item name="background">@color/contextual_background</item>
+        <item name="titleTextStyle">@style/MyTextStyle</item>
+
+        <!-- Change Default icon (i.e. Back arrow) of the Action Mode
+        <item name="actionModeCloseDrawable">@drawable/delete_icon</item> -->
+
+    </style>
+
+    <!-- Contextual ActionBar Title Text   -->
+    <style name="MyTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/contextualText</item>
+    </style>
+
+    <style name="MyToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Text color of Toolbar Title -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!-- Color of Overflow Menu (3 dots icon) and color of Navigation Drawer icon -->
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+
+    <style name="MyPopupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@color/overflowMenuBg</item>
+        <item name="android:textColorPrimary">@color/overflowTxtPrim</item>
+
+    </style>
+</resources>
