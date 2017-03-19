@@ -1,12 +1,16 @@
 package com.example.a33telephoneapi;
 
+import android.Manifest;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
@@ -15,13 +19,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQ_SENT = 1234;
     private static final int REQ_DELIVERED = 4561;
+    StringBuilder stringBuilder;
     private TelephonyManager telephonyManager;
-
     private BroadcastReceiver broadcastReceiverSms = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -56,8 +61,17 @@ public class MainActivity extends AppCompatActivity {
         Log.i("@MasterBlaster", "Imei - " + telephonyManager.getDeviceId());
         Log.i("@MasterBlaster", "Mobile No - " + telephonyManager.getLine1Number());
         Log.i("@MasterBlaster", "Iso - " + telephonyManager.getSimCountryIso());
-        Log.i("@MasterBlaster", "Nw Operator - " + telephonyManager.getNetworkOperator());
+        Log.i("@MasterBlaster", "Ntwk Operator - " + telephonyManager.getNetworkOperator());
         Log.i("@MasterBlaster", "Sim Operator - " + telephonyManager.getSimOperator());
+
+        stringBuilder = new StringBuilder();
+        stringBuilder.append("IMEI -> ").append(telephonyManager.getDeviceId()).append("\n").
+                append("Mobile No. --> ").append(telephonyManager.getLine1Number()).append("\n").
+                append("ISO -> ").append(telephonyManager.getSimCountryIso()).append("\n").
+                append("Ntwk Operator ->").append(telephonyManager.getNetworkOperator()).append("\n").
+                append("Sim Operator -> ").append(telephonyManager.getSimOperator()).append("\n");
+
+        ((TextView) findViewById(R.id.Txtview)).setText(stringBuilder.toString());
 
         findViewById(R.id.BtnSend).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +80,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.BtnCall).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                giveCall();
+            }
+        });
+
     }
+
 
     private void sendMessage() {
 
@@ -82,6 +104,23 @@ public class MainActivity extends AppCompatActivity {
 
         smsManager.sendTextMessage("+919820857225", null, "Hi From Android..1", pendingIntentSent, pendingTntentDelivered);
 
+    }
+
+    private void giveCall() {
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:+919820857225"));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        startActivity(intent);
     }
 
     @Override
