@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/28.jsonparsingusinggson/28.jsonparsingusinggson.iml" filepath="$PROJECT_DIR$/28.jsonparsingusinggson/28.jsonparsingusinggson.iml" />
       <module fileurl="file://$PROJECT_DIR$/29webservices/29webservices.iml" filepath="$PROJECT_DIR$/29webservices/29webservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/30.locationservices/30.locationservices.iml" filepath="$PROJECT_DIR$/30.locationservices/30.locationservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/31.1wifitest/31.1wifitest.iml" filepath="$PROJECT_DIR$/31.1wifitest/31.1wifitest.iml" />
       <module fileurl="file://$PROJECT_DIR$/31.wifi/31.wifi.iml" filepath="$PROJECT_DIR$/31.wifi/31.wifi.iml" />
       <module fileurl="file://$PROJECT_DIR$/32.bluetooth/32.bluetooth.iml" filepath="$PROJECT_DIR$/32.bluetooth/32.bluetooth.iml" />
       <module fileurl="file://$PROJECT_DIR$/33.telephoneapi/33.telephoneapi.iml" filepath="$PROJECT_DIR$/33.telephoneapi/33.telephoneapi.iml" />
@@ -31,7 +32,10 @@
       <module fileurl="file://$PROJECT_DIR$/40.7collapsingtoolbarlayout/40.7collapsingtoolbarlayout.iml" filepath="$PROJECT_DIR$/40.7collapsingtoolbarlayout/40.7collapsingtoolbarlayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/40.8navigationview/40.8navigationview.iml" filepath="$PROJECT_DIR$/40.8navigationview/40.8navigationview.iml" />
       <module fileurl="file://$PROJECT_DIR$/40.toolbarmaterialdesign/40.toolbarmaterialdesign.iml" filepath="$PROJECT_DIR$/40.toolbarmaterialdesign/40.toolbarmaterialdesign.iml" />
-      <module fileurl="file://$PROJECT_DIR$/44.1Lifesum/44.1Lifesum.iml" filepath="$PROJECT_DIR$/44.1Lifesum/44.1Lifesum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/41.chip/41.chip.iml" filepath="$PROJECT_DIR$/41.chip/41.chip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/42.texttospeechandspeechtotext/42.texttospeechandspeechtotext.iml" filepath="$PROJECT_DIR$/42.texttospeechandspeechtotext/42.texttospeechandspeechtotext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/43.localization/43.localization.iml" filepath="$PROJECT_DIR$/43.localization/43.localization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/70.0LifeSum/70.0LifeSum.iml" filepath="$PROJECT_DIR$/70.0LifeSum/70.0LifeSum.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyTestingAddOn.iml" filepath="$PROJECT_DIR$/MyTestingAddOn.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

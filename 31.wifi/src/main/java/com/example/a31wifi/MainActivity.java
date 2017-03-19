@@ -16,22 +16,32 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private WifiManager wifiManager;
+
+
     private BroadcastReceiver wifiBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            StringBuilder stringBuilder = new StringBuilder();
 
+            //wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
             List<ScanResult> scanResults = wifiManager.getScanResults();
             for (ScanResult scanResult : scanResults) {
 
                 Log.i("@MasterBlaster", "Scanned SSID - " + scanResult.SSID);
                 Log.i("@MasterBlaster", "Scanned BSSID - " + scanResult.BSSID);
+                stringBuilder.append("Scanned SSID -> ").append(scanResult.SSID).append("\n").
+                        append("Scanned BSSID -> ").append(scanResult.BSSID).append("\n");
+
             }
+            ((TextView) findViewById(R.id.TxtView)).setText(stringBuilder.toString());
         }
     };
 
@@ -53,17 +63,34 @@ public class MainActivity extends AppCompatActivity {
 
         wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
-        if (!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
-
+        //if (!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
+        findViewById(R.id.BtnWifiEnable).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
+                Toast.makeText(MainActivity.this, "WiFI Enabled", Toast.LENGTH_LONG).show();
+            }
+        });
+        findViewById(R.id.BtnWifiDisable).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(false);
+                Toast.makeText(MainActivity.this, "WiFI Disabled", Toast.LENGTH_LONG).show();
+            }
+        });
         findViewById(R.id.BtnConnected).setOnClickListener(this::connectedWifi);
+        //findViewById(R.id.BtnConnected).setOnClickListener(v -> connectedWifi());
         findViewById(R.id.BtnScan).setOnClickListener(this::scanForWifi);
+        //findViewById(R.id.BtnScan).setOnClickListener(v -> wifiManager.startScan());
         findViewById(R.id.BtnConnect).setOnClickListener(this::connectWifi);
+        //findViewById(R.id.BtnConnect).setOnClickListener(v -> connectWifi());
     }
+
 
     @Override
     protected void onStart() {
-        super.onStart();
         registerReceiver(wifiBroadcastReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        super.onStart();
     }
 
     @Override
@@ -74,27 +101,34 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void connectedWifi(View view) {
-
+        // private void connectedWifi(){
+        StringBuilder stringBuilder = new StringBuilder();
         List<WifiConfiguration> wifiConfigurations = wifiManager.getConfiguredNetworks();
+        Log.i("@MasterBlaster", "Total Connected Devices :: ");
         for (WifiConfiguration wifiConfiguration : wifiConfigurations) {
+
 
             Log.i("@MasterBlaster", "Connected BSSID - " + wifiConfiguration.BSSID);
             Log.i("@MasterBlaster", "Connected SSID - " + wifiConfiguration.SSID);
+            stringBuilder.append("Connected BSSID -> ").append(wifiConfiguration.BSSID).append("\n").
+                    append("Connected SSID -> ").append(wifiConfiguration.SSID).append("\n");
+
         }
+        ((TextView) findViewById(R.id.TxtView)).setText(stringBuilder.toString());
     }
 
     private void scanForWifi(View view) {
 
         wifiManager.startScan();
-
     }
 
     private void connectWifi(View view) {
+        //    private void connectWifi(){
 
         WifiConfiguration wifiConfiguration = new WifiConfiguration();
-        wifiConfiguration.SSID = String.format("\"%s\"", "YOUR CODEKUL");
-        // wifiConfiguration.SSID = String.format("\"%s\"","iBall-Baton");
-        wifiConfiguration.preSharedKey = String.format("\"%s\"", "code.com;");
+        //wifiConfiguration.SSID = String.format("\"%s\"", "YOUR CODEKUL");
+        wifiConfiguration.SSID = String.format("\"%s\"", "iBall-Baton");
+        //wifiConfiguration.preSharedKey = String.format("\"%s\"", "code.com;");
         wifiConfiguration.preSharedKey = String.format("\"%s\"", "pswd@123");
 
         WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
@@ -103,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         wifiManager.enableNetwork(netId, true);
         wifiManager.reconnect();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.DataInputStream;
@@ -29,16 +30,22 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int REQ_ENABLE_BT = 4689;
     private BluetoothAdapter bluetoothAdapter;
+
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+        StringBuilder stringBuilder = new StringBuilder();
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            Log.i("@MasterBlaster", " Bluetooth Divices Found : ");
+            Log.i("@MasterBlaster", " Bluetooth Divices Found :: ");
             BluetoothDevice bluetoothDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
             Log.i("@MasterBlaster", " Bluetooth Divices Name : " + bluetoothDevice.getName());
             Log.i("@MasterBlaster", " Bluetooth Divices Address : " + bluetoothDevice.getAddress());
-
+            stringBuilder.append("Bluetooth Divices Name --> ").append(bluetoothDevice.getName()).append("\n").
+                    append("Bluetooth Divices Address --> ").append(bluetoothDevice.getAddress());
+            ((TextView) findViewById(R.id.TxtView)).setText(stringBuilder.toString());
         }
+
     };
 
     @Override
@@ -100,14 +107,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void connectedDevices(View view) {
 
+        StringBuilder stringBuilder = new StringBuilder();
+
         Set<BluetoothDevice> connectedDevices = bluetoothAdapter.getBondedDevices();
 
         for (BluetoothDevice connectedDevice : connectedDevices) {
-
+            Log.i("@MasterBlaster", "Bluetooth Connected Devices :: ");
             Log.i("@MasterBlaster", "Name - " + connectedDevice.getName());
             Log.i("@MasterBlaster", "Address - " + connectedDevice.getAddress());
 
+            stringBuilder.append("Name -> ").append(connectedDevice.getName()).append("\n")
+                    .append("Address -> ").append(connectedDevice.getAddress()).append("\n");
         }
+
+        ((TextView) findViewById(R.id.TxtView)).setText(stringBuilder.toString());
     }
 
     private void discoverDevices(View view) {
@@ -133,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             //bluetoothServerSocket.connect();  //Ask for Pairing
             BluetoothSocket bluetoothSocket = bluetoothServerSocket.accept(); //Accept connection from client
             DataOutputStream dos = new DataOutputStream(bluetoothSocket.getOutputStream());
-            dos.writeUTF("This is HELLO from Server side / Connected to Bluetooth Srever ");
+            dos.writeUTF("This is HELLO from Server side / Connected to Bluetooth Server ");
             //dos.close();
 
         } catch (IOException e) {

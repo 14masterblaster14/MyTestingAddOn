@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/28.jsonparsingusinggson" />
             <option value="$PROJECT_DIR$/29webservices" />
             <option value="$PROJECT_DIR$/30.locationservices" />
+            <option value="$PROJECT_DIR$/31.1wifitest" />
             <option value="$PROJECT_DIR$/31.wifi" />
             <option value="$PROJECT_DIR$/32.bluetooth" />
             <option value="$PROJECT_DIR$/33.telephoneapi" />
@@ -38,7 +39,10 @@
             <option value="$PROJECT_DIR$/40.7collapsingtoolbarlayout" />
             <option value="$PROJECT_DIR$/40.8navigationview" />
             <option value="$PROJECT_DIR$/40.toolbarmaterialdesign" />
-            <option value="$PROJECT_DIR$/44.1Lifesum" />
+            <option value="$PROJECT_DIR$/41.chip" />
+            <option value="$PROJECT_DIR$/42.texttospeechandspeechtotext" />
+            <option value="$PROJECT_DIR$/43.localization" />
+            <option value="$PROJECT_DIR$/70.0LifeSum" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
