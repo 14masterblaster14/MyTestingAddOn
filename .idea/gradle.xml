@@ -28,6 +28,7 @@
             <option value="$PROJECT_DIR$/36.selectors" />
             <option value="$PROJECT_DIR$/37.recyclerview" />
             <option value="$PROJECT_DIR$/38.layerlist" />
+            <option value="$PROJECT_DIR$/39.1svgtest" />
             <option value="$PROJECT_DIR$/39.svg" />
             <option value="$PROJECT_DIR$/40.1materialanddesigntoolbar" />
             <option value="$PROJECT_DIR$/40.1test" />
@@ -42,7 +43,11 @@
             <option value="$PROJECT_DIR$/41.chip" />
             <option value="$PROJECT_DIR$/42.texttospeechandspeechtotext" />
             <option value="$PROJECT_DIR$/43.localization" />
-            <option value="$PROJECT_DIR$/70.0LifeSum" />
+            <option value="$PROJECT_DIR$/44.introslider" />
+            <option value="$PROJECT_DIR$/45.pager" />
+            <option value="$PROJECT_DIR$/46.searchview" />
+            <option value="$PROJECT_DIR$/47.popup" />
+            <option value="$PROJECT_DIR$/70.0lifesum" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

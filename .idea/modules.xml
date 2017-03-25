@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/36.selectors/36.selectors.iml" filepath="$PROJECT_DIR$/36.selectors/36.selectors.iml" />
       <module fileurl="file://$PROJECT_DIR$/37.recyclerview/37.recyclerview.iml" filepath="$PROJECT_DIR$/37.recyclerview/37.recyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/38.layerlist/38.layerlist.iml" filepath="$PROJECT_DIR$/38.layerlist/38.layerlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/39.1svgtest/39.1svgtest.iml" filepath="$PROJECT_DIR$/39.1svgtest/39.1svgtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/39.svg/39.svg.iml" filepath="$PROJECT_DIR$/39.svg/39.svg.iml" />
       <module fileurl="file://$PROJECT_DIR$/40.1materialanddesigntoolbar/40.1materialanddesigntoolbar.iml" filepath="$PROJECT_DIR$/40.1materialanddesigntoolbar/40.1materialanddesigntoolbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/40.1test/40.1test.iml" filepath="$PROJECT_DIR$/40.1test/40.1test.iml" />
@@ -35,7 +36,11 @@
       <module fileurl="file://$PROJECT_DIR$/41.chip/41.chip.iml" filepath="$PROJECT_DIR$/41.chip/41.chip.iml" />
       <module fileurl="file://$PROJECT_DIR$/42.texttospeechandspeechtotext/42.texttospeechandspeechtotext.iml" filepath="$PROJECT_DIR$/42.texttospeechandspeechtotext/42.texttospeechandspeechtotext.iml" />
       <module fileurl="file://$PROJECT_DIR$/43.localization/43.localization.iml" filepath="$PROJECT_DIR$/43.localization/43.localization.iml" />
-      <module fileurl="file://$PROJECT_DIR$/70.0LifeSum/70.0LifeSum.iml" filepath="$PROJECT_DIR$/70.0LifeSum/70.0LifeSum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/44.introslider/44.introslider.iml" filepath="$PROJECT_DIR$/44.introslider/44.introslider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/45.pager/45.pager.iml" filepath="$PROJECT_DIR$/45.pager/45.pager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/46.searchview/46.searchview.iml" filepath="$PROJECT_DIR$/46.searchview/46.searchview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/47.popup/47.popup.iml" filepath="$PROJECT_DIR$/47.popup/47.popup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/70.0lifesum/70.0lifesum.iml" filepath="$PROJECT_DIR$/70.0lifesum/70.0lifesum.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyTestingAddOn.iml" filepath="$PROJECT_DIR$/MyTestingAddOn.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

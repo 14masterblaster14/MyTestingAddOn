@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int REQ_SENT = 1234;
     private static final int REQ_DELIVERED = 4561;
+    private static final int CALL_PHONE_PERMISSION_CONSTANT = 5678;
+    private static final int SEND_SMS_PERMISSION_CONSTANT = 6789;
+    private static final int READ_PHONE_STATE_PERMISSION_CONSTANT = 7890;
     StringBuilder stringBuilder;
     private TelephonyManager telephonyManager;
     private BroadcastReceiver broadcastReceiverSms = new BroadcastReceiver() {
@@ -57,7 +61,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("Need READ_PHONE_STATE permission")
+                    .setMessage("This app need READ_PHONE_STATE permission")
+                    .setPositiveButton("Grant", (dialog, which) -> {
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.READ_PHONE_STATE},
+                                READ_PHONE_STATE_PERMISSION_CONSTANT);
+                    }).setNegativeButton("Deny", (((dialog, which) -> {
+                        dialog.dismiss();
+                    })));
+
+        } else {
+
+            telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        }
         Log.i("@MasterBlaster", "Imei - " + telephonyManager.getDeviceId());
         Log.i("@MasterBlaster", "Mobile No - " + telephonyManager.getLine1Number());
         Log.i("@MasterBlaster", "Iso - " + telephonyManager.getSimCountryIso());
@@ -92,6 +112,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendMessage() {
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("Need SEND_SMS permission")
+                    .setMessage("This app need SEND_SMS permission")
+                    .setPositiveButton("Grant", (dialog, which) -> {
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.SEND_SMS},
+                                SEND_SMS_PERMISSION_CONSTANT);
+                    }).setNegativeButton("Deny", (((dialog, which) -> {
+                        dialog.dismiss();
+                    })));
+
+        } else {
+
         SmsManager smsManager = SmsManager.getDefault();
 
         Intent intentSent = new Intent("com.codekul.SENT");
@@ -102,7 +137,8 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingTntentDelivered = PendingIntent.getBroadcast
                 (this, REQ_DELIVERED, intentDelivered, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        smsManager.sendTextMessage("+919820857225", null, "Hi From Android..1", pendingIntentSent, pendingTntentDelivered);
+            smsManager.sendTextMessage("+919820857225", null, "Hi From Android..1", pendingIntentSent, pendingTntentDelivered);
+        }
 
     }
 
@@ -118,9 +154,21 @@ public class MainActivity extends AppCompatActivity {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            return;
+            //return;
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("Need CALL_PHONE permission")
+                    .setMessage("This app need CALL_PHONE permission")
+                    .setPositiveButton("Grant", (dialog, which) -> {
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.CALL_PHONE},
+                                CALL_PHONE_PERMISSION_CONSTANT);
+                    }).setNegativeButton("Deny", (((dialog, which) -> {
+                        dialog.dismiss();
+                    })));
+        } else {
+            startActivity(intent);
         }
-        startActivity(intent);
     }
 
     @Override
