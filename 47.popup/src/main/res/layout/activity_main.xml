@@ -11,8 +11,16 @@
     tools:context="com.example.a47popup.MainActivity">
 
     <Button
-        android:id="@+id/BtnPopUp"
+        android:id="@+id/BtnPopUp1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Popup" />
+        android:layout_alignParentTop="true"
+        android:text="Popup 1" />
+
+    <Button
+        android:id="@+id/BtnPopUp2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Popup 2" />
 </RelativeLayout>
