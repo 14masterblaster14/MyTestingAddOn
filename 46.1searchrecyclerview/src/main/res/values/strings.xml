@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">46.1searchrecyclerview</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="Actors">
+        <item>"Shahrukh1"</item>
+        <item>"Ajay2"</item>
+        <item>"Ranvir1"</item>
+        <item>"Irfan"</item>
+        <item>"Shahrukh2"</item>
+        <item>"Amir1"</item>
+        <item>"Ranvir2"</item>
+        <item>"Nawazuddin"</item>
+        <item>"Shahid"</item>
+        <item>"All"</item>
+        <item>"Ajay2"</item>
+        <item>"Ranvir3"</item>
+        <item>"Shahrukh3"</item>
+        <item>"Raj"</item>
+        <item>"Amitabh"</item>
+        <item>"Amir2"</item>
+        <item>"Priyanka"</item>
+        <item>"Abhishek"</item>
+        <item>"Imran"</item>
+        <item>"Akshay"</item>
+        <item>"Amir3"</item>
+    </string-array>
+
+</resources>
