@@ -17,7 +17,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    String[] s_names = getResources().getStringArray(R.array.Actors);
+    // String[] s_names = getResources().getStringArray(R.array.Actors);
+    String[] s_names = {"Shahrukh1", "Ajay2", "Ranvir1", "Irfan", "Shahrukh2", "Amir1", "Ranvir2",
+            "Nawazuddin", "Shahid", "All", "Ajay2", "Ranvir3", "Shahrukh3", "Raj", "Amitabh",
+            "Amir2", "Priyanka", "Abhishek", "Imran", "Akshay", "Amir3"};
+
     int[] s_actors = {R.drawable.s1, R.drawable.s2, R.drawable.s3, R.drawable.s4, R.drawable.s5,
             R.drawable.s6, R.drawable.s7, R.drawable.s8, R.drawable.s9, R.drawable.s10,
             R.drawable.s11, R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15,
