@@ -13,10 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import id.zelory.compressor.Compressor;
 import rx.android.schedulers.AndroidSchedulers;
@@ -59,7 +61,55 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri_Pic);
         startActivityForResult(intent, REQ_CAPTURE_PIC);
 
-        compressImage();
+    }
+
+    private void captureVideo(View view) {
+
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        file_Vid = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MyTest.mp4");
+        fileUri_Vid = Uri.fromFile(file_Vid);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri_Vid);
+        startActivityForResult(intent, REQ_CAPTURE_VID);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+      /*  if (requestCode == REQ_CAPTURE_PIC) {
+
+            ((ImageView) findViewById(R.id.ImageView)).setImageURI(fileUri_Pic);
+        } else if (requestCode == REQ_CAPTURE_VID) {
+
+            ((VideoView) findViewById(R.id.VideoView)).setVideoURI(fileUri_Vid);
+        } */
+
+        if (requestCode == REQ_CAPTURE_PIC) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Image Captured Successfully", Toast.LENGTH_SHORT).show();
+
+                ((ImageView) findViewById(R.id.ImageView)).setImageURI(fileUri_Pic);
+
+                Compressor.getDefault(this)
+                        .compressToFileAsObservable(file_Pic)
+                        .subscribeOn(Schedulers.newThread())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnNext(this::compressImage)
+                        .subscribe();
+            }
+        }
+
+        if (requestCode == REQ_CAPTURE_VID) {
+            if (resultCode == RESULT_OK) {
+                findViewById(R.id.ImageView).setVisibility(View.GONE);
+                findViewById(R.id.VideoView).setVisibility(View.VISIBLE);
+                ((VideoView) findViewById(R.id.VideoView)).setVideoURI(Uri.fromFile(file_Vid));
+                ((VideoView) findViewById(R.id.VideoView)).start();
+            }
+        }
+    }
+
+    private void compressImage(File file) {
     }
 
     private void compressImage() {
@@ -81,6 +131,12 @@ public class MainActivity extends AppCompatActivity {
                             byte[] bytes = new byte[(int) fileComp.length()];
                             fis.read(bytes);
                             fis.close();
+
+
+                            File fileOut = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "comp.jpg");
+                            FileOutputStream fos = new FileOutputStream(fileOut);
+                            fos.write(bytes);
+                            fos.close();
                         }
                      /*   catch (FileNotFoundException e) {
                             e.printStackTrace();
@@ -96,29 +152,6 @@ public class MainActivity extends AppCompatActivity {
                         //showError(throwable.getMessage());
                     }
                 });
-    }
-
-
-    private void captureVideo(View view) {
-
-        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        file_Vid = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MyTest.mp3");
-        fileUri_Vid = Uri.fromFile(file_Vid);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri_Vid);
-        startActivityForResult(intent, REQ_CAPTURE_VID);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQ_CAPTURE_PIC) {
-
-            ((ImageView) findViewById(R.id.ImageView)).setImageURI(fileUri_Pic);
-        } else if (requestCode == REQ_CAPTURE_VID) {
-
-            ((VideoView) findViewById(R.id.VideoView)).setVideoURI(fileUri_Vid);
-        }
     }
 
     @Override

@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        //wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 
         //if (!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
         findViewById(R.id.BtnWifiEnable).setOnClickListener(new View.OnClickListener() {
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         //wifiConfiguration.preSharedKey = String.format("\"%s\"", "code.com;");
         wifiConfiguration.preSharedKey = String.format("\"%s\"", "pswd@123");
 
-        WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        //   WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         int netId = wifiManager.addNetwork(wifiConfiguration);
         wifiManager.disconnect();
         wifiManager.enableNetwork(netId, true);
